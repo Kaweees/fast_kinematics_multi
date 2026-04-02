@@ -16,8 +16,10 @@ jobs:
         include:
           - arch: x86_64
             runner: ubuntu-latest
+            dockerfile: docker/Dockerfile
           - arch: aarch64
             runner: ubuntu-24.04-arm
+            dockerfile: docker/Dockerfile.aarch64
     steps:
       - uses: actions/checkout@v4
         with:
@@ -26,9 +28,8 @@ jobs:
       - name: Build Docker image
         run: |
           docker build \
-            --build-arg ARCH=${{ matrix.arch }} \
             -t fast_kinematics_builder:${{ matrix.arch }} \
-            -f docker/Dockerfile .
+            -f ${{ matrix.dockerfile }} .
 
       - name: Build wheels
         run: |

@@ -68,8 +68,8 @@ long_description = (this_directory / "readme.md").read_text()
 # The information here can also be placed in setup.cfg - better separation of
 # logic and declaration, and simpler if you include description/version in a file.
 setup(
-    name="fast_kinematics",
-    version="0.2.2",
+    name="fast_kinematics_multi",
+    version="0.2.3",
     author="Xinsong Lin",
     author_email="x8lin@ucsd.edu",
     description="A fast kinematics library for robotics",
